@@ -1,0 +1,58 @@
+{
+  "city": [
+    {
+      "id": 1,
+      "name": "istanbul"
+    },
+    {
+      "id": 2,
+      "name": "ankara"
+    },
+    {
+      "id": 3,
+      "name": "izmir"
+    },
+    {
+      "id": 4,
+      "name": "samsun"
+    },
+    {
+      "id": 5,
+      "name": "trabzon"
+    },
+    {
+      "id": 6,
+      "name": "bursa"
+    },
+    {
+      "name": "antalya",
+      "id": 7
+    }
+  ],
+  "bus": [
+    {
+      "id": 1,
+      "model": "Mercedes-Benz O403",
+      "seattype": "2+1",
+      "seat": 46
+    },
+    {
+      "id": 2,
+      "model": "Neoplan Starliner",
+      "seattype": "4",
+      "seat": 46
+    },
+    {
+      "id": 3,
+      "model": "Trivago",
+      "seattype": "4",
+      "seat": 50
+    },
+    {
+      "id": 4,
+      "model": "Temsa",
+      "seattype": "2+1",
+      "seat": 43
+    }
+  ]
+}
