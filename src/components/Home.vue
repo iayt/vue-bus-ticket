@@ -4,8 +4,15 @@
 
     export default {
         name: 'Home',
-        data() {
-            return {}
+        data () {
+          const xmlHttp = new XMLHttpRequest();
+          const url = 'http://localhost:3000/db/'
+          xmlHttp.open('GET', url, false);
+          xmlHttp.send(null);
+          let db = JSON.parse(xmlHttp.responseText);
+          return {
+            city: db.city
+          };
         },
         components: {
             TmpHeader,
@@ -26,10 +33,10 @@
                 <form class="form-inline col-12">
                 <div class="form-group col-12 justify-content-center">
                     <select class="form-control col-2 mb-2 mr-sm-2" name="frstStation">
-                        <option value="istanbul">istanbul</option>
+                        <option v-for="data in city" key="data.id" value="">{{data.name}}</option>
                     </select>
                     <select class="form-control col-2 mb-2 mr-sm-2" name="lastStation">
-                        <option value="ankara">Ankara</option>
+                        <option v-for="data in city" key="data.id" value="">{{data.name}}</option>
                     </select>
                     <input type="text" name="date" value="04.08.2017" class="form-control col-2 mb-2 mr-sm-2 ">
 
