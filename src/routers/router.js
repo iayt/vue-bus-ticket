@@ -1,11 +1,11 @@
 import Home from '../components/Home.vue';
 
 export default {
-    mode: 'history',        //adresteki # kaldırıyor
+    mode: 'history',
     routes: [
         {
             path: '/',
             component: Home,
-        }
+        },
     ],
 }

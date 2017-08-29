@@ -1,6 +1,16 @@
-# vuebusticket
+# vue-bus-ticket
 
-> A Vue.js project
+> a bus ticket project for practice by using vue.js
+
+
+
+## Technologies used
+- [Vue JS](https://vuejs.org/)
+- [Axios](https://github.com/mzabriskie/axios)
+- [Json Server](https://github.com/typicode/json-server)
+- [Bootstrap](https://v4-alpha.getbootstrap.com/)
+
+
 
 ## Build Setup
 

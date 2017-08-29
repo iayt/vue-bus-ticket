@@ -1,27 +1,27 @@
 {
   "city": [
     {
-      "id": 1,
+      "id": 34,
       "name": "istanbul"
     },
     {
-      "id": 2,
+      "id": 6,
       "name": "ankara"
     },
     {
-      "id": 3,
+      "id": 35,
       "name": "izmir"
     },
     {
-      "id": 4,
+      "id": 55,
       "name": "samsun"
     },
     {
-      "id": 5,
+      "id": 61,
       "name": "trabzon"
     },
     {
-      "id": 6,
+      "id": 16,
       "name": "bursa"
     },
     {
@@ -53,6 +53,41 @@
       "model": "Temsa",
       "seattype": "2+1",
       "seat": 43
+    }
+  ],
+  "busservice": [
+    {
+      "id": 1,
+      "code":"290817193406",
+      "from":34,
+      "to":6,
+      "type":1,
+      "price":80,
+      "date":"29.08.2017",
+      "time":"19:00",
+      "fullseat": [1,3,4,5,7,8,14,15,16,17]
+    },
+    {
+      "id": 2,
+      "code":"290817203406",
+      "from":34,
+      "to":6,
+      "type":3,
+      "price":75,
+      "date":"29.08.2017",
+      "time":"20:00",
+      "fullseat": [2,3,6,7,13,14,18,20,25,26,27,28]
+    },
+    {
+      "id": 3,
+      "code":"290817193406",
+      "from":34,
+      "to":6,
+      "type":2,
+      "price":80,
+      "date":"30.08.2017",
+      "time":"19:00",
+      "fullseat": [3,6,7,20,25,26,27,28]
     }
   ]
 }
