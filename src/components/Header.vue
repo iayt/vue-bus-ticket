@@ -1,17 +1,17 @@
 <template>
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-      <a class="navbar-brand" href="#">Otobüs Bileti</a>
+  <div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand">ia</a>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Anasayfa <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Bilet Ara</a>
-          </li>
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link" href="#">Anasayfa <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Servislerimiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SSS</a></li>
         </ul>
       </div>
 
-    </nav>
+    </div>
+  </div>
 </template>

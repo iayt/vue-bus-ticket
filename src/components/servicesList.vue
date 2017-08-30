@@ -1,30 +1,32 @@
 <template>
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-4">Seferler</h1>
-        <p>Lütfen aşağıdaki serferlerden birini seçiniz.</p>
-
-        <div class="row justify-content-md-center">
-          <div class="list-group col-md-6 ">
-            <div class="list-group-item list-group-item-action justify-content-between">
-              <span class="col-md-1"><b>#</b></span>
-              <span class="col-md-2"><b>Kalkış Saati</b></span>
-              <span class="col-md-2"><b>Otobüs Tipi</b></span>
-              <span class="col-md-2"><b>Liste Fiyatı</b></span>
-              <span class="col-md-2"><b>İnternet Fiyatı</b></span>
-              <span class="col-md-2"></span>
-            </div>
-            <a href="#" v-for="busservice in $store.state.busservices" key="busservice.id" class="list-group-item list-group-item-action justify-content-between">
-              <span class="col-md-1">{{busservice.id}}</span>
-              <span class="col-md-2">{{busservice.time}}</span>
-              <span class="col-md-2">{{busservice.type}}</span>
-              <span class="col-md-2">{{busservice.price}} TL</span>
-              <span class="col-md-2"><b>{{busservice.price-5}} TL</b></span>
-              <span class="badge badge-default badge-pill">KOLTUK SEÇ</span>
-            </a>
-          </div>
+    <div class="col col-lg-5 servicesList">
+      
+        <h5>Sefer Bilgileri</h5>
+        <hr>
+        <div class="row srvcItem titleArea">
+          <div class="col col-lg-1">#</div>
+          <div class="col col-lg-2">Kalkış Saati</div>
+          <div class="col col-lg-2">Otobüs Tipi</div>
+          <div class="col col-lg-2">Liste<br>Fiyatı</div>
+          <div class="col col-lg-2">İnternet Fiyatı</div>
+          <div class="col align-self-end"></div>
+        </div>
+        <div v-for="busservice in $store.state.busservices" key="busservice.id" class="row srvcItem border-top-0" >
+          <div class="col col-lg-1">{{busservice.id}}</div>
+          <div class="col col-lg-2">{{busservice.time}}</div>
+          <div class="col col-lg-2">{{busservice.type}}</div>
+          <div class="col col-lg-2">{{busservice.price}} TL</div>
+          <div class="col col-lg-2"><b>{{busservice.price-5}} TL</b></div>
+          <div class="col align-self-end"><a href="#"><span class="badge badge-secondary badge-success">SEÇ &raquo;</span></a></div>
+        </div>
+        <div class="row srvcItem border-top-0">
+          <div class="col col-lg-1">5</div>
+          <div class="col col-lg-2">19:00</div>
+          <div class="col col-lg-2">2+1</div>
+          <div class="col col-lg-2">80 TL</div>
+          <div class="col col-lg-2"><b>75 TL</b></div>
+          <div class="col align-self-end"><span class="badge badge-secondary badge-danger">DOLU</span></div>
         </div>
 
-      </div>
     </div>
 </template>
