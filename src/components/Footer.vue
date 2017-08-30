@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer>
         <hr>
         <div class="container">
           <p>&copy; Company 2017</p>
