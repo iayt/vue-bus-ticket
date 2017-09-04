@@ -10,6 +10,7 @@
           return {
             status:'loading',
             paramForm: {from:"34", to:'6', date:'01.09.2017'},
+            seating:'',
           }
         },
         components: {
@@ -29,17 +30,28 @@
             }
 
             this.$store.dispatch('fetchBusServices', paramForm).then(() => {
-              this.status = 'pageBusServices';
+              this.status = 1;
             });
+          },
 
-          }
+          showSeatPage(){
+            let seat = this.$store.state.showbusservices.seat;
+            let full = this.$store.state.showbusservices.fullseat;
 
+            const seating = [];
+            for (var i=0; i<seat; i++) {
+              var valFull=false;
+              if(full.indexOf(i) >= 0){valFull=true}
+              seating.push({id:i,full:valFull});
+            }
 
+            this.seating = seating;
+          },
 
         },
         created(){
           this.$store.dispatch('fetchCities').then(() => {
-            this.status = 'pageSearch';
+            this.status = 0;
             //this.status = 'error';  //hata alanı da yapılacak.
           });
 
@@ -57,7 +69,7 @@
         <div class="jumbotron text-center">
           <div class="container">
             <h1 class="display-3">Vue Turizm</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>{{status}} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 
             <form v-on:submit.prevent="searchForm">
               <div class="row justify-content-md-center searchArea">
@@ -99,75 +111,20 @@
             <servicesList />
 
             <div class="col col-lg-2 disabledArea">
-              <div class="curtain"></div>
+              <div class="curtain" v-if="status < 2"></div>
 
               <h5>Koltuk Seçimi</h5>
               <hr>
               <div class="seatArea 2plus2">
+                <!-- <div v-for="seat in seating">{{seat.id+1}}</div> -->
                 <div>1</div>
                 <div>2</div>
                 <div>3</div>
                 <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-                <div>19</div>
-                <div>20</div>
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-                <div>30</div>
-                <div>31</div>
-                <div>32</div>
-                <div>33</div>
-                <div>34</div>
-                <div>35</div>
-                <div>36</div>
-                <div>37</div>
-                <div>38</div>
-                <div>39</div>
-                <div>40</div>
-                <div>41</div>
-                <div>42</div>
-                <div>43</div>
-                <div>44</div>
-                <div>45</div>
-                <div>46</div>
-                <div>47</div>
-                <div>48</div>
-                <div>49</div>
-                <div>50</div>
-                <div>51</div>
-                <div>52</div>
-                <div>53</div>
-                <div>54</div>
-                <div>55</div>
-                <div>56</div>
-                <div>57</div>
-                <div>58</div>
-                <div>59</div>
-                <div>60</div>
               </div>
             </div>
             <div class="col col-lg-4 infoArea disabledArea">
-              <div class="curtain"></div>
+              <div class="curtain" v-if="status < 3"></div>
 
               <h5>Bilgiler</h5>
               <hr>

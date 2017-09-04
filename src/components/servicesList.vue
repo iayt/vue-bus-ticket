@@ -1,18 +1,25 @@
 <script>
   export default {
+
+    data() {
+     return {
+
+     }
+    },
     methods: {
-
-      showBusservice(id){
-        console.log(id);
+      showBusService(id){
+        this.$store.dispatch('fetchShowBusService', id).then(() => {
+          this.$parent.status = 2;
+          this.$parent.showSeatPage();
+        });
       },
-
     },
   }
 </script>
 
 <template>
-    <div class="col col-lg-5 servicesList">
-
+    <div class="col col-lg-5 servicesList disabledArea">
+        <div class="curtain" v-if="this.$parent.status < 1"></div>
         <h5>Sefer Bilgileri</h5>
         <hr>
         <div class="row srvcItem titleArea">
@@ -30,7 +37,7 @@
           <div class="col col-lg-2">{{busservice.price}} TL</div>
           <div class="col col-lg-2"><b>{{busservice.price-5}} TL</b></div>
           <div class="col align-self-end" v-if="busservice.full == false">
-            <button class="badge badge-secondary badge-success" variant="outline-primary" @click="showBusservice(busservice.id)">SEÇ &raquo;</button>
+            <button class="btn btn-sm btn-success" variant="outline-primary" @click="showBusService(busservice.id)">SEÇ &raquo;</button>
           </div>
           <div class="col align-self-end" v-if="busservice.full == true"><span class="badge badge-secondary badge-danger">DOLU</span></div>
         </div>
