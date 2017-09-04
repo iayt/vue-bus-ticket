@@ -12,7 +12,11 @@ export default {
     return axios.get('/city');
   },
 
-  fetchBusServices(paramForm){
+  fetchBuses(){
+    return axios.get('/bus');
+  },
+
+  fetchBusServices(paramForm,buses){
     return axios.get('/busservice', {
         params: {
           from: paramForm.from,

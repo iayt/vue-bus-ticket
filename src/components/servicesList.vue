@@ -1,6 +1,18 @@
+<script>
+  export default {
+    methods: {
+
+      showBusservice(id){
+        console.log(id);
+      },
+
+    },
+  }
+</script>
+
 <template>
     <div class="col col-lg-5 servicesList">
-      
+
         <h5>Sefer Bilgileri</h5>
         <hr>
         <div class="row srvcItem titleArea">
@@ -14,18 +26,13 @@
         <div v-for="busservice in $store.state.busservices" key="busservice.id" class="row srvcItem border-top-0" >
           <div class="col col-lg-1">{{busservice.id}}</div>
           <div class="col col-lg-2">{{busservice.time}}</div>
-          <div class="col col-lg-2">{{busservice.type}}</div>
+          <div class="col col-lg-2">{{busservice.bustype}}</div>
           <div class="col col-lg-2">{{busservice.price}} TL</div>
           <div class="col col-lg-2"><b>{{busservice.price-5}} TL</b></div>
-          <div class="col align-self-end"><a href="#"><span class="badge badge-secondary badge-success">SEÇ &raquo;</span></a></div>
-        </div>
-        <div class="row srvcItem border-top-0">
-          <div class="col col-lg-1">5</div>
-          <div class="col col-lg-2">19:00</div>
-          <div class="col col-lg-2">2+1</div>
-          <div class="col col-lg-2">80 TL</div>
-          <div class="col col-lg-2"><b>75 TL</b></div>
-          <div class="col align-self-end"><span class="badge badge-secondary badge-danger">DOLU</span></div>
+          <div class="col align-self-end" v-if="busservice.full == false">
+            <button class="badge badge-secondary badge-success" variant="outline-primary" @click="showBusservice(busservice.id)">SEÇ &raquo;</button>
+          </div>
+          <div class="col align-self-end" v-if="busservice.full == true"><span class="badge badge-secondary badge-danger">DOLU</span></div>
         </div>
 
     </div>
