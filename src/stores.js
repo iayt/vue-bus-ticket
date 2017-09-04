@@ -4,6 +4,7 @@ const state = {
   cities: [],
   buses: [],
   busservices: {},
+  showbusservices: [],
 }
 const getters = {}
 const mutations = {
@@ -26,6 +27,15 @@ const mutations = {
     }
     state.busservices = busservices;
   },
+
+  setShowBusServices(state, id){
+    state.busservices.find(function (data){
+      if(data.id === id){
+          state.showbusservices = data;
+      }
+    })
+  },
+
 }
 const actions = {
   fetchCities(context){
@@ -46,6 +56,11 @@ const actions = {
       context.commit('setBusServices', res.data);
     });
   },
+
+  fetchShowBusService(context,id){
+    context.commit('setShowBusServices', id);
+  },
+
 }
 
 export default {
