@@ -2,19 +2,21 @@
     import TmpHeader from './header.vue';
     import TmpFooter from './footer.vue';
     import servicesList from './servicesList.vue';
+    import loading from './loading.vue';
 
     export default {
         name: 'Home',
         data() {
           return {
             status:'loading',
-            paramForm: {from:"Nereden", to:'Nereye', date:'29.08.2017'},
+            paramForm: {from:"34", to:'6', date:'01.09.2017'},
           }
         },
         components: {
             TmpHeader,
             TmpFooter,
             servicesList,
+            loading,
         },
         methods: {
           searchForm(){
@@ -31,12 +33,17 @@
             });
 
           }
+
+
+
         },
         created(){
           this.$store.dispatch('fetchCities').then(() => {
             this.status = 'pageSearch';
             //this.status = 'error';  //hata alanı da yapılacak.
           });
+
+          this.$store.dispatch('fetchBuses');
         },
     }
 </script>
@@ -44,9 +51,8 @@
 
 <template>
     <div>
+        <loading  v-if="status === 'loading'" />
         <tmp-header />
-
-        <div class="container" v-if="status === 'loading'">Yükleniyor...</div>
 
         <div class="jumbotron text-center">
           <div class="container">
@@ -62,11 +68,11 @@
                   </div>
                   <div class="col col-lg-3">
                     <select class="form-control" name="lastStation" v-model="paramForm.to">
-                      <option v-for="cities in $store.state.cities" key="cities.id" :value="cities.id">{{cities.name}}</option>
+                      <option v-for="cities in $store.state.cities" v-if="cities.id != paramForm.from" key="cities.id" :value="cities.id">{{cities.name}}</option>
                     </select>
                   </div>
                   <div class="col col-lg-3">
-                    <input class="form-control" type="text" name="date" value="01.09.2017" v-model="paramForm.date">
+                    <input class="form-control" type="text" name="date" v-model="paramForm.date">
                   </div>
                   <div class="col col-lg-1">
                     <button type="submit" class="btn btn-primary">ARA &raquo;</button>
